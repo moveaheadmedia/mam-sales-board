@@ -28,8 +28,11 @@ defined('ABSPATH') or die('</3');
 //use Inpsyde\SearchReplace\Database;
 //use Mam\AliTask\Endpoint;
 
-add_action( 'plugins_loaded', 'ali_task_load' );
-register_activation_hook( __FILE__, 'ali_task_activate' );
+add_action( 'plugins_loaded', function(){
+	mam_sales_board_load();
+} );
+
+register_activation_hook( __FILE__, 'mam_sales_board_activate' );
 
 
 /**
@@ -42,12 +45,12 @@ register_activation_hook( __FILE__, 'ali_task_activate' );
  *
  * @return void
  */
-function ali_task_activate() {
+function mam_sales_board_activate() {
 
 	$required_php_version = '5.6.0';
 	$correct_php_version  = version_compare( PHP_VERSION, $required_php_version, '>=' );
 
-	ali_task_textdomain();
+	mam_sales_board_textdomain();
 
 	if ( ! $correct_php_version ) {
 		deactivate_plugins( basename( __FILE__ ) );
@@ -77,11 +80,11 @@ function ali_task_activate() {
  *
  * @return bool
  */
-function ali_task_load() {
+function mam_sales_board_load() {
 
 	define( 'ALI_TASK_BASEDIR', plugin_dir_url( __FILE__ ) );
 
-	ali_task_textdomain();
+	mam_sales_board_textdomain();
 
 	$file     = __DIR__ . '/vendor/autoload.php';
 
@@ -108,7 +111,7 @@ function ali_task_load() {
 /**
  * Loading the plugin translations.
  */
-function ali_task_textdomain() {
+function mam_sales_board_textdomain() {
 
 	return load_plugin_textdomain(
 		'mam-sales-board',
