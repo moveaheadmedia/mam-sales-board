@@ -26,7 +26,7 @@ defined('ABSPATH') or die('</3');
 
 
 //use Inpsyde\SearchReplace\Database;
-//use Mam\AliTask\Endpoint;
+use Mam\SalesBoard\Page;
 
 add_action( 'plugins_loaded', function(){
 	mam_sales_board_load();
@@ -95,10 +95,13 @@ function mam_sales_board_load() {
 	/** @noinspection PhpIncludeInspection */
 	include_once $file;
 
-	// Manage Endpoints
+	// Manage Admin Pages
+	$page_manager = new Page\Manager();
 
-	//$endpoint_manager = new Endpoint\Manager();
-	//$endpoint_manager->add_endpoint(new Inpsyde\AliTask\Endpoint\Users());
+	// add Sales Board Admin Page
+	$page_manager->add_page(new Page\SalesBoard());
+
+
 	//$endpoint_manager->add_endpoint(new Endpoint\UserDetails());
 
 	// scripts
