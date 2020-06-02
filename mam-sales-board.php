@@ -24,9 +24,7 @@
 // prevent direct access
 defined('ABSPATH') or die('</3');
 
-
-//use Inpsyde\SearchReplace\Database;
-use Mam\SalesBoard\Page;
+use Mam\SalesBoard\Endpoint;
 
 add_action( 'plugins_loaded', function(){
 	mam_sales_board_load();
@@ -95,18 +93,25 @@ function mam_sales_board_load() {
 	/** @noinspection PhpIncludeInspection */
 	include_once $file;
 
-	// Manage Admin Pages
-	$page_manager = new Page\Manager();
+	// Register the option page using ACF
+	if( function_exists('acf_add_options_page') ) {
+		// Register options page.
+		acf_add_options_page(array(
+			'page_title'    => 'Sales Board',
+			'menu_title'    => 'Sales Board',
+			'menu_slug'     => 'mam-sales-board',
+			'capability'    => 'read',
+			'redirect'      => false
+		));
+	}
 
-	// add Sales Board Admin Page
-	$page_manager->add_page(new Page\SalesBoard());
-
-
-	//$endpoint_manager->add_endpoint(new Endpoint\UserDetails());
+	$endpoint_manager = new Endpoint\Manager();
+	$endpoint_manager->add_endpoint(new Endpoint\SalesBoard());
+	$endpoint_manager->add_endpoints();
 
 	// scripts
-	//add_action( 'admin_enqueue_scripts', [ $endpoint_manager, 'register_css' ] );
-	//add_action( 'admin_enqueue_scripts', [ $endpoint_manager, 'register_js' ] );
+	add_action( 'admin_enqueue_scripts', [ $endpoint_manager, 'register_css' ] );
+	add_action( 'admin_enqueue_scripts', [ $endpoint_manager, 'register_js' ] );
 
 	return true;
 }
