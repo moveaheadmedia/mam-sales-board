@@ -29,7 +29,7 @@ jQuery(document).ready(function ($) {
 				init_users_table(data);
 			}
 		});
-	}, 50000);
+	}, 5000);
 	setInterval(function(){
 		$.ajax({
 			url: user_details_endpoint + 'country/',
@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 				init_country_table(data);
 			}
 		});
-	}, 50000);
+	}, 5000);
 
 	function init_users_table(data){
 		if(usersTable){
@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
 			"paging": false,
 			"searching": false,
 			data: data,
-			'aaSorting': [[4, 'desc']],
+			'aaSorting': [[5, 'desc']],
 			'columns': [
 				{'data': 'name'},
 				{'data': 'country'},

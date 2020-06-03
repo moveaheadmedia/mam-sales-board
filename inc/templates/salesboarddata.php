@@ -4,7 +4,7 @@ $countries = array();
 
 $country = array();
 $country['country'] = 'GBP';
-$country['team'] = 'Uk Sales';
+$country['team'] = 'UK Sales';
 $country['record'] = date('F');
 $country['current'] = 0;
 $country['recurring_target'] = 0;

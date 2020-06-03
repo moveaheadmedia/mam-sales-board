@@ -31,7 +31,7 @@
             <th>Recurring Collected</th>
             <th>Current %</th>
             <th>Singles</th>
-            <th>TOTAl Collected</th>
+            <th>TOTAL Collected</th>
         </tr>
         </thead>
     </table>
