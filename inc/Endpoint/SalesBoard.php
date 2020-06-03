@@ -15,7 +15,7 @@ class SalesBoard extends AbstractEndpoint implements EndpointInterface {
 	 */
 	public function get_slug() {
 
-		return 'sales';
+		return 'sales-board';
 	}
 
 	/**

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="563ab833-50dd-4e23-8ceb-1f0b1bea484f" name="bedrock" url="http://localhost/bedrock/web/">
+        <fileTransfer mountedRoot="C:\wamp64\www\bedrock\web\app\plugins\sales-board" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

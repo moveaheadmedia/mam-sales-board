@@ -1,0 +1,30 @@
+body{
+    font-size: 16px;
+}
+.dataTables_info {
+    display: none;
+}
+.countries-data {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2582c;
+    color: #fff;
+}
+table#countries {
+    color: #fff;
+    font-weight: bold;
+}
+table.dataTable th{
+    text-align: center;
+}
+table#countries tbody tr{
+    background-color: #f2582c;
+}
+div#users_wrapper table.dataTable{
+    font-weight: bold;
+}
+div#users_wrapper {
+    padding-bottom: 220px;
+}
