@@ -5,7 +5,7 @@ $countries = array();
 $country = array();
 $country['country'] = 'GBP';
 $country['team'] = 'UK Sales';
-$country['record'] = date('F');
+$country['record'] = get_field( 'uk_record_month', 'option' );
 $country['current'] = 0;
 $country['recurring_target'] = 0;
 $country['current_recurring'] = 0;
@@ -16,7 +16,7 @@ $countries['GBP'] = $country;
 $country = array();
 $country['country'] = 'AUD';
 $country['team'] = 'Aus Sales';
-$country['record'] = date('F');
+$country['record'] = get_field( 'aus_record_month', 'option' );
 $country['current'] = 0;
 $country['recurring_target'] = 0;
 $country['current_recurring'] = 0;
@@ -27,7 +27,7 @@ $countries['AUD'] = $country;
 $country = array();
 $country['country'] = 'THB';
 $country['team'] = 'Thai Sales';
-$country['record'] = date('F');
+$country['record'] = get_field( 'thai_record_month', 'option' );
 $country['current'] = 0;
 $country['recurring_target'] = 0;
 $country['current_recurring'] = 0;
@@ -53,8 +53,8 @@ if ( have_rows( $acf_repater, 'option' ) ) {
 		$countries[get_sub_field( 'country' )]['recurring_target'] = $countries[get_sub_field( 'country' )]['recurring_target'] + get_sub_field( 'recurring_target' );
 		$countries[get_sub_field( 'country' )]['current_recurring'] = $countries[get_sub_field( 'country' )]['current_recurring'] + get_sub_field( 'recurring_collected' );
 		$countries[get_sub_field( 'country' )]['current_total'] = $countries[get_sub_field( 'country' )]['current_total'] + get_sub_field( 'recurring_collected' ) + get_sub_field( 'singles' );
-		$countries[get_sub_field( 'country' )]['current'] = get_percentage($countries[get_sub_field( 'country' )]['recurring_target'] ,  $countries[get_sub_field( 'country' )]['current_recurring']);
-		$countries[get_sub_field( 'country' )]['current2'] = get_percentage($countries[get_sub_field( 'country' )]['recurring_target'], $countries[get_sub_field( 'country' )]['current_total']);
+		$countries[get_sub_field( 'country' )]['current'] = get_percentage($countries[get_sub_field( 'country' )]['record'] ,  $countries[get_sub_field( 'country' )]['current_total']);
+		$countries[get_sub_field( 'country' )]['current2'] = get_percentage($countries[get_sub_field( 'country' )]['recurring_target'] ,  $countries[get_sub_field( 'country' )]['current_recurring']);
 	}
 }
 
@@ -66,7 +66,7 @@ function get_percentage( $total, $number ) {
 	}
 }
 
-function toMoney( $symbol, $val, $r = 2 ) {
+function toMoney( $symbol, $val, $r = 0 ) {
 	return $symbol . ' ' . number_format($val, $r);
 
 }
@@ -79,6 +79,7 @@ function format_coutries_table($array){
 		$country['current_total'] = toMoney($country['country'], $country['current_total']);
 		$country['current'] = $country['current'] . '%';
 		$country['current2'] = $country['current2'] . '%';
+		$country['record'] = toMoney($country['country'], $country['record']);
 		$countries[] = $country;
 	}
 	return $countries;

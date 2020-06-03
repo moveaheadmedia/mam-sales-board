@@ -11,16 +11,6 @@
 </head>
 <body>
 <br />
-<div class="header-section">
-    <div class="container">
-        <div class="text text-center">
-            <div class="logo"><img class="mx-auto d-block" src="https://www.moveaheadmedia.co.uk/wp-content/uploads/2019/12/logo.png" width="334" height="auto" alt="Moveaheadmedia"/></div>
-        </div>
-    </div>
-</div>
-
-<br />
-<br />
 <div class="col-md-12">
     <table class="table table-striped table-bordered" id="users" style="width: 100%">
         <thead>

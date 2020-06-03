@@ -113,6 +113,8 @@ function mam_sales_board_load() {
 	add_action('init', [ $endpoint_manager, 'add_endpoints' ]);
 	// handle endpoints
 	add_action('template_redirect', [ $endpoint_manager, 'render' ]);
+
+
 	// Add custom fields
 	if( function_exists('acf_add_local_field_group') ):
 
@@ -248,6 +250,69 @@ function mam_sales_board_load() {
 							'step' => '',
 						),
 					),
+				),
+				array(
+					'key' => 'field_5ed7000233213',
+					'label' => 'UK Record Month',
+					'name' => 'uk_record_month',
+					'type' => 'number',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'min' => '',
+					'max' => '',
+					'step' => '',
+				),
+				array(
+					'key' => 'field_5ed7001333214',
+					'label' => 'Thai Record Month',
+					'name' => 'thai_record_month',
+					'type' => 'number',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'min' => '',
+					'max' => '',
+					'step' => '',
+				),
+				array(
+					'key' => 'field_5ed7001f33215',
+					'label' => 'Aus Record Month',
+					'name' => 'aus_record_month',
+					'type' => 'number',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'min' => '',
+					'max' => '',
+					'step' => '',
 				),
 			),
 			'location' => array(

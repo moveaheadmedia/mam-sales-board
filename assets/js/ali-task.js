@@ -4,8 +4,10 @@ jQuery(document).ready(function ($) {
 	// From WP Localise Script ali-task/ali-task.js
     var user_details_endpoint = ali_task.user_details_endpoint;
 
+	var d = new Date();
+
 	$.ajax({
-		url: user_details_endpoint + 'country/',
+		url: user_details_endpoint + 'country/?rand=' + d.getTime(),
 		method: 'get',
 		dataType: 'json',
 		success: function (data) {
@@ -13,7 +15,7 @@ jQuery(document).ready(function ($) {
 		}
 	});
 	$.ajax({
-		url: user_details_endpoint,
+		url: user_details_endpoint + '?rand=' + d.getTime(),
 		method: 'get',
 		dataType: 'json',
 		success: function (data) {
@@ -21,8 +23,9 @@ jQuery(document).ready(function ($) {
 		}
 	});
 	setInterval(function(){
+		d = new Date();
 		$.ajax({
-			url: user_details_endpoint,
+			url: user_details_endpoint + '?rand=' + d.getTime(),
 			method: 'get',
 			dataType: 'json',
 			success: function (data) {
@@ -31,8 +34,9 @@ jQuery(document).ready(function ($) {
 		});
 	}, 5000);
 	setInterval(function(){
+		d = new Date();
 		$.ajax({
-			url: user_details_endpoint + 'country/',
+			url: user_details_endpoint + 'country/?rand=' + d.getTime(),
 			method: 'get',
 			dataType: 'json',
 			success: function (data) {
@@ -49,7 +53,7 @@ jQuery(document).ready(function ($) {
 			"paging": false,
 			"searching": false,
 			data: data,
-			'aaSorting': [[5, 'desc']],
+			'aaSorting': [[4, 'desc']],
 			'columns': [
 				{'data': 'name'},
 				{'data': 'country'},
@@ -71,7 +75,7 @@ jQuery(document).ready(function ($) {
 			"paging": false,
 			"searching": false,
 			data: data,
-			'aaSorting': [[4, 'desc']],
+			'aaSorting': [[5, 'desc']],
 			'columns': [
 				{'data': 'team'},
 				{'data': 'record'},
