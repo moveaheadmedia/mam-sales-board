@@ -39,7 +39,7 @@ register_activation_hook( __FILE__, 'mam_sales_board_activate' );
  * Runs on plugin activation.
  * Check if php min 5.6.0 if not deactivate the plugin.
  *
- * @since 1.0
+ * @since 1.2
  *
  * @return void
  */
