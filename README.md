@@ -22,7 +22,7 @@ Coming Soon
 
 
 ##== Frequently Asked Questions ==
-No FAQs at the moment, feel free to discuss issues here: https://github.com/Watchout1992/Inpsyde 
+No FAQs at the moment, feel free to discuss issues here: https://github.com/Watchout1992/mam-sales-board
 
 ##== Screenshots ==
 1. Coming Soon
