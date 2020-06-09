@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
 			"paging": false,
 			"searching": false,
 			data: data,
-			'aaSorting': [[4, 'desc']],
+			'aaSorting': [[5, 'desc']],
 			'columns': [
 				{'data': 'name'},
 				{'data': 'country'},
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
 			"paging": false,
 			"searching": false,
 			data: data,
-			'aaSorting': [[5, 'desc']],
+			'aaSorting': [[6, 'desc']],
 			'columns': [
 				{'data': 'team'},
 				{'data': 'record'},
