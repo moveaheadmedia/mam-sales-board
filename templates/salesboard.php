@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <title>Sales Board - MoveAheadMedia</title>
 	<?php wp_head(); ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="<?php echo ALI_TASK_BASEDIR; ?>assets/css/ali-task.css"/>
 </head>
 <body>
 <br />
@@ -19,6 +15,7 @@
             <th>Country</th>
             <th>Recurring Target</th>
             <th>Recurring Collected</th>
+            <th>New Recurring</th>
             <th>Current %</th>
             <th>Singles</th>
             <th>TOTAL Collected</th>
@@ -35,6 +32,7 @@
             <th>Current %</th>
             <th>Recurring   Target</th>
             <th>Current Recurring</th>
+            <th>New Recurring</th>
             <th>Current %</th>
             <th>Current Total</th>
         </tr>

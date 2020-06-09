@@ -2,47 +2,37 @@ jQuery(document).ready(function ($) {
 	var usersTable;
 	var countryTable;
 	// From WP Localise Script ali-task/ali-task.js
-    var user_details_endpoint = ali_task.user_details_endpoint;
+    var sales_endpoint = msp_plugin.sales_endpoint;
 
 	var d = new Date();
-
-	$.ajax({
-		url: user_details_endpoint + 'country/?rand=' + d.getTime(),
-		method: 'get',
-		dataType: 'json',
-		success: function (data) {
-			init_country_table(data);
-		}
-	});
-	$.ajax({
-		url: user_details_endpoint + '?rand=' + d.getTime(),
-		method: 'get',
-		dataType: 'json',
-		success: function (data) {
-			init_users_table(data);
-		}
-	});
-	setInterval(function(){
+	function ajax_country_table(){
 		d = new Date();
 		$.ajax({
-			url: user_details_endpoint + '?rand=' + d.getTime(),
-			method: 'get',
-			dataType: 'json',
-			success: function (data) {
-				init_users_table(data);
-			}
-		});
-	}, 5000);
-	setInterval(function(){
-		d = new Date();
-		$.ajax({
-			url: user_details_endpoint + 'country/?rand=' + d.getTime(),
+			url: sales_endpoint + 'country/?rand=' + d.getTime(),
 			method: 'get',
 			dataType: 'json',
 			success: function (data) {
 				init_country_table(data);
 			}
 		});
+	}
+	ajax_country_table();
+	function ajax_users_table(){
+		d = new Date();
+		$.ajax({
+			url: sales_endpoint + '?rand=' + d.getTime(),
+			method: 'get',
+			dataType: 'json',
+			success: function (data) {
+				init_users_table(data);
+			}
+		});
+	}
+	ajax_users_table();
+
+	setInterval(function(){
+		ajax_users_table();
+		ajax_country_table();
 	}, 5000);
 
 	function init_users_table(data){
@@ -59,6 +49,7 @@ jQuery(document).ready(function ($) {
 				{'data': 'country'},
 				{'data': 'recurring_target'},
 				{'data': 'recurring_collected'},
+				{'data': 'new_recurring'},
 				{'data': 'current'},
 				{'data': 'singles'},
 				{'data': 'total'}
@@ -82,6 +73,7 @@ jQuery(document).ready(function ($) {
 				{'data': 'current'},
 				{'data': 'recurring_target'},
 				{'data': 'current_recurring'},
+				{'data': 'new_recurring'},
 				{'data': 'current2'},
 				{'data': 'current_total'}
 			]

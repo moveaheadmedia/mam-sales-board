@@ -4,7 +4,7 @@ Tags: Wordpress, Plugin
 Requires at least: 5.4.1  
 Tested up to: 5.4.1  
 Requires PHP: 7.1.16  
-Stable tag: 1.0  
+Stable tag: 2.0  
 License: GPLv2  
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html  
 
