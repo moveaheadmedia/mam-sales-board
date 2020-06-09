@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="563ab833-50dd-4e23-8ceb-1f0b1bea484f" name="bedrock" url="http://localhost/bedrock/web/">
-        <fileTransfer mountedRoot="C:\wamp64\www\bedrock\web\app\plugins\sales-board" accessType="MOUNT" port="0" />
+        <fileTransfer mountedRoot="C:\wamp64\www\bedrock\web\app\plugins\mam-sales-board" accessType="MOUNT" port="0" />
       </webServer>
       <webServer id="0368fa71-9bc9-4eb3-b5fc-9702ab9a5151" name="mamdevsite" url="http://mamdevsite.com/mam/">
         <fileTransfer rootFolder="/mam/wp-content/plugins/mam-sales-board-1.1" host="mamdevsite.com" port="21">
