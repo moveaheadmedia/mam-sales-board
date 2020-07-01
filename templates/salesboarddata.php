@@ -81,10 +81,11 @@ function format_coutries_table($array){
 	foreach ($array as $country){
 		$country['recurring_target'] = toMoney($country['country'], $country['recurring_target']);
 		$country['current_recurring'] = toMoney($country['country'], $country['current_recurring']);
+        $country['new_recurring'] = toMoney($country['country'], $country['new_recurring']);
 		$country['current_total'] = toMoney($country['country'], $country['current_total']);
 		$country['current'] = $country['current'] . '%';
 		$country['current2'] = $country['current2'] . '%';
-		$country['record'] = toMoney($country['country'], $country['record']);
+        $country['record'] = toMoney($country['country'], $country['record']);
 		$countries[] = $country;
 	}
 	return $countries;
