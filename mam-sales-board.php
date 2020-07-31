@@ -54,19 +54,18 @@ define('MSB_BASENAME', plugin_basename(__FILE__));
 /**
  * The code that runs during plugin activation
  */
-function activate_alitask_plugin() {
-	/** @noinspection PhpFullyQualifiedNameUsageInspection */
-	\Mam\SalesBoard\Base\ActivateDeactivate::activate();
+function activate_salesboard_plugin() {
+    flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'activate_alitask_plugin' );
+register_activation_hook( __FILE__, 'activate_salesboard_plugin' );
 
 /**
  * The code that runs during plugin deactivation
  */
-function deactivate_alitask_plugin() {
-	/** @noinspection PhpFullyQualifiedNameUsageInspection */
-	\Mam\SalesBoard\Base\ActivateDeactivate::deactivate();
+function deactivate_salesboard_plugin() {
+    flush_rewrite_rules();
 }
+register_deactivation_hook( __FILE__, 'deactivate_salesboard_plugin' );
 
 /**
  * Initialize and run all the core classes of the plugin
