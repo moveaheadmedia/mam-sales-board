@@ -267,7 +267,7 @@ class OptionPage implements ServiceInterface{
                 'page_title' 	=> 'MAM',
                 'menu_title'	=> 'MAM',
                 'menu_slug' 	=> 'mam',
-                'capability'	=> 'edit_posts',
+                'capability'	=> 'read',
                 'redirect'		=> false
             ));
 
