@@ -268,7 +268,7 @@ class OptionPage implements ServiceInterface{
                 'menu_title'	=> 'MAM',
                 'menu_slug' 	=> 'mam',
                 'capability'	=> 'read',
-                'redirect'		=> false
+                'redirect'		=> true
             ));
 
             // child page
@@ -276,6 +276,7 @@ class OptionPage implements ServiceInterface{
                 'page_title' => 'Sales Board',
                 'menu_title' => 'Sales Board',
                 'menu_slug'  => 'mam-sales-board',
+                'capability'	=> 'read',
                 'parent_slug'	=> 'mam'
             ));
         }
