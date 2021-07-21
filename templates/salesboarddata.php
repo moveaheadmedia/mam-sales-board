@@ -1,4 +1,5 @@
 <?php
+
 $sales       = array();
 $countries = array();
 

@@ -33,7 +33,7 @@ class Enqueue implements ServiceInterface {
 		wp_register_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('fontawesome');
 
-		wp_register_style('msp-plugin', MSB_URL.'assets/css/msp-plugin.css');
+		wp_register_style('msp-plugin', MSB_URL.'assets/css/msp-plugin.css?v1');
 		wp_enqueue_style('msp-plugin');
 	}
 
@@ -46,11 +46,11 @@ class Enqueue implements ServiceInterface {
 		wp_register_script('datatables', 'https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js', array('jquery'), '3.3.5' );
 		wp_enqueue_script('datatables');
 
-		wp_register_script('msp-plugin', MSB_URL.'assets/js/msp-plugin.js', array('jquery'), '3.3.5' );
+		wp_register_script('msp-plugin', MSB_URL.'assets/js/msp-plugin.js?v2', array('jquery'), '3.3.5' );
 		wp_enqueue_script('msp-plugin');
 
 		// used in user javascript files
-		$wnm_custom = array( 'sales_endpoint' => home_url().'/sales-board-data/' );
+        $wnm_custom = array( 'sales_endpoint' => home_url().'/sales-board-data/' );
 		wp_localize_script( 'msp-plugin', 'msp_plugin', $wnm_custom );
 	}
 }
