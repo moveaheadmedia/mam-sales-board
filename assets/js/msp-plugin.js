@@ -1,4 +1,60 @@
 jQuery(document).ready(function ($) {
+	// new tables
+	function ajax_country_table_new(){
+		d = new Date();
+		$.ajax({
+			url: 'https://mamdevsite.com/mam/sales-board-data-new/?action=country&rand=' + d.getTime(),
+			method: 'get',
+			success: function (data) {
+				$('#countries-new tbody').html(data);
+			}
+		});
+	}
+	ajax_country_table_new();
+	function ajax_users_table_new(){
+		d = new Date();
+		$.ajax({
+			url: 'https://mamdevsite.com/mam/sales-board-data-new/?action=users&rand=' + d.getTime(),
+			method: 'get',
+			success: function (data) {
+				$('#users-new').html(data);
+			}
+		});
+	}
+	ajax_users_table_new();
+	function ajax_second_table_new(){
+		d = new Date();
+		$.ajax({
+			url: 'https://mamdevsite.com/mam/sales-board-data-new/?action=second&rand=' + d.getTime(),
+			method: 'get',
+			success: function (data) {
+				$('#second-table').html(data);
+			}
+		});
+	}
+	ajax_second_table_new();
+
+	setInterval(function(){
+		ajax_country_table_new();
+		ajax_users_table_new();
+		ajax_second_table_new();
+	}, 5000);
+
+	// table switcher
+	var activeTable = true;
+	setInterval(function(){
+		if(activeTable){
+			activeTable = false;
+			$('#users-new').removeClass('active');
+			$('#second-table').addClass('active');
+		}else{
+			activeTable = true;
+			$('#second-table').removeClass('active');
+			$('#users-new').addClass('active');
+		}
+	}, 30000);
+
+
 	var usersTable;
 	var countryTable;
 	// From WP Localise Script ali-task/ali-task.js

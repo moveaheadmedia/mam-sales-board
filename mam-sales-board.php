@@ -54,18 +54,19 @@ define('MSB_BASENAME', plugin_basename(__FILE__));
 /**
  * The code that runs during plugin activation
  */
-function activate_salesboard_plugin() {
-    flush_rewrite_rules();
+function activate_alitask_plugin() {
+	/** @noinspection PhpFullyQualifiedNameUsageInspection */
+	\Mam\SalesBoard\Base\ActivateDeactivate::activate();
 }
-register_activation_hook( __FILE__, 'activate_salesboard_plugin' );
+register_activation_hook( __FILE__, 'activate_alitask_plugin' );
 
 /**
  * The code that runs during plugin deactivation
  */
-function deactivate_salesboard_plugin() {
-    flush_rewrite_rules();
+function deactivate_alitask_plugin() {
+	/** @noinspection PhpFullyQualifiedNameUsageInspection */
+	\Mam\SalesBoard\Base\ActivateDeactivate::deactivate();
 }
-register_deactivation_hook( __FILE__, 'deactivate_salesboard_plugin' );
 
 /**
  * Initialize and run all the core classes of the plugin
@@ -73,4 +74,55 @@ register_deactivation_hook( __FILE__, 'deactivate_salesboard_plugin' );
 if ( class_exists( '\\Mam\\SalesBoard\\Init' ) ) {
 	/** @noinspection PhpFullyQualifiedNameUsageInspection */
 	\Mam\SalesBoard\Init::registerServices();
+}
+
+
+
+function mam_getClient()
+{
+    $client = new Google_Client();
+    $client->setApplicationName('Google Sheets API PHP Quickstart');
+    $client->setScopes(Google_Service_Sheets::SPREADSHEETS);
+    $client->setAuthConfig(dirname( __FILE__ ) . '/credentials.json');
+    $client->setAccessType('offline');
+    $client->setPrompt('select_account consent');
+
+    // Load previously authorized token from a file, if it exists.
+    // The file token.json stores the user's access and refresh tokens, and is
+    // created automatically when the authorization flow completes for the first
+    // time.
+    $tokenPath = dirname( __FILE__ ) . '/token.json';
+    if (file_exists($tokenPath)) {
+        $accessToken = json_decode(file_get_contents($tokenPath), true);
+        $client->setAccessToken($accessToken);
+    }
+
+    // If there is no previous token or it's expired.
+    if ($client->isAccessTokenExpired()) {
+        // Refresh the token if possible, else fetch a new one.
+        if ($client->getRefreshToken()) {
+            $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+        } else {
+            // Request authorization from the user.
+            $authUrl = $client->createAuthUrl();
+            printf("Open the following link in your browser:\n%s\n", $authUrl);
+            print 'Enter verification code: ';
+            $authCode = trim(fgets(STDIN));
+
+            // Exchange authorization code for an access token.
+            $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+            $client->setAccessToken($accessToken);
+
+            // Check to see if there was an error.
+            if (array_key_exists('error', $accessToken)) {
+                throw new Exception(join(', ', $accessToken));
+            }
+        }
+        // Save the token to a file.
+        if (!file_exists(dirname($tokenPath))) {
+            mkdir(dirname($tokenPath), 0700, true);
+        }
+        file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+    }
+    return $client;
 }

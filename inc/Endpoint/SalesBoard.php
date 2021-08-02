@@ -26,5 +26,7 @@ class SalesBoard implements ServiceInterface {
 	public function register(){
 		$this->endpoint_api->add_endpoint('sales-board')->with_teamplate('salesboard.php')->register_endpoints();
 		$this->endpoint_api->add_endpoint('sales-board-data')->with_teamplate('salesboarddata.php')->register_endpoints();
+        $this->endpoint_api->add_endpoint('sales-board-new')->with_teamplate('sales-board-new.php')->register_endpoints();
+        $this->endpoint_api->add_endpoint('sales-board-data-new')->with_teamplate('sales-board-data-new.php')->register_endpoints();
 	}
 }

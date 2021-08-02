@@ -35,7 +35,7 @@ class Endpoint {
 	 *
 	 * @return Endpoint this object for chaining
 	 */
-	public function add_endpoint( string $slug ) {
+	public function add_endpoint( $slug ) {
 		$this->slugs[] = $slug;
 		$this->endpoints[$slug] = '';
 
@@ -52,7 +52,7 @@ class Endpoint {
 	 * @return Endpoint this object for chaining
 	 * @throws Exception
 	 */
-	public function with_teamplate( string $template_file ) {
+	public function with_teamplate( $template_file ) {
 		if(!$this->endpoint_added){
 			throw new Exception("You must call add_endpoint before with_teamplate!");
 		}
