@@ -89,7 +89,7 @@ if ($_GET['action'] == 'country') {
             echo '</tr>';
         }
     }
-    //update_sheet_total($data);
+    update_sheet_total($data);
 }
 
 function get_new_recurring_target($data, $country = 'All', $currency = 'AUD', $number = false)
@@ -290,8 +290,8 @@ function update_sheet_total($data)
 {
     $spreadsheetId = '1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA';
     //$spreadsheetId = '1y-lpfMpSpoUxSK-KNtyjtrc2sdwaq4xESqt7PyeJTck';
-    $range1 = 'Second Part!D2';
-    $range2 = 'Second Part!G2';
+    $range1 = 'Second Part!D3';
+    //$range2 = 'Second Part!G2';
     $new_collected = round(get_new_recurring_collected($data, 'All', 'AUD', true));
     $monthly_recurring_target = round(get_monthly_recurring_target($data, 'All', 'AUD', true));
     $client = mam_getClient();
@@ -299,6 +299,6 @@ function update_sheet_total($data)
     $body = new Google_Service_Sheets_ValueRange(json_decode('{"values":[["' . $new_collected . '"]]}', true));
     $service->spreadsheets_values->update($spreadsheetId, $range1, $body, ['valueInputOption' => 'USER_ENTERED']);
 
-    $body = new Google_Service_Sheets_ValueRange(json_decode('{"values":[["' . ($new_collected + $monthly_recurring_target) . '"]]}', true));
-    $service->spreadsheets_values->update($spreadsheetId, $range2, $body, ['valueInputOption' => 'USER_ENTERED']);
+    //$body = new Google_Service_Sheets_ValueRange(json_decode('{"values":[["' . ($new_collected + $monthly_recurring_target) . '"]]}', true));
+    //$service->spreadsheets_values->update($spreadsheetId, $range2, $body, ['valueInputOption' => 'USER_ENTERED']);
 }
