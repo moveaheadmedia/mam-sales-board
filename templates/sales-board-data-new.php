@@ -88,8 +88,8 @@ if ($_GET['action'] == 'country') {
             }
             echo '</tr>';
         }
+        update_sheet_total($data);
     }
-    update_sheet_total($data);
 }
 
 function get_new_recurring_target($data, $country = 'All', $currency = 'AUD', $number = false)
