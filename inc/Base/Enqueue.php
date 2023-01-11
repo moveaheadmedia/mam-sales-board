@@ -46,7 +46,7 @@ class Enqueue implements ServiceInterface {
 		wp_register_script('datatables', 'https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js', array('jquery'), '3.3.5' );
 		wp_enqueue_script('datatables');
 
-		wp_register_script('msp-plugin', MSB_URL.'assets/js/msp-plugin.js?v2', array('jquery'), '3.3.5' );
+		wp_register_script('msp-plugin', MSB_URL.'assets/js/msp-plugin.js', array('jquery'), '5' );
 		wp_enqueue_script('msp-plugin');
 
 		// used in user javascript files

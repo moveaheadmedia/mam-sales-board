@@ -5,15 +5,11 @@ if (!isset($_GET['action'])) {
 }
 if ($_GET['action'] == 'users') {
     $csv = new \ParseCsv\Csv();
-    echo file_get_contents('https://docs.google.com/spreadsheets/d/1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA/gviz/tq?tqx=out:html&sheet=First%20Table');
-}
-if ($_GET['action'] == 'second') {
-    $csv = new \ParseCsv\Csv();
-    echo file_get_contents('https://docs.google.com/spreadsheets/d/1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA/gviz/tq?tqx=out:html&sheet=Second%20Part');
+    echo file_get_contents('https://docs.google.com/spreadsheets/d/1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA/gviz/tq?tqx=out:html&gid=368356493');
 }
 
 if ($_GET['action'] == 'country') {
-    $sheetURL1 = 'https://docs.google.com/spreadsheets/d/1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA/gviz/tq?tqx=out:csv&sheet=First%20Table';
+	$sheetURL1 = 'https://docs.google.com/spreadsheets/d/1IkufcwjOhDXW8xC1ntCjVjcJs9yoiM9kW57SsiRNNpA/gviz/tq?tqx=out:csv&gid=368356493';
     $file_name1 = 'data1.csv';
     if (file_put_contents(MSB_PATH . 'data/' . $file_name1, file_get_contents($sheetURL1))) {
         $csv = new \ParseCsv\Csv();
@@ -21,6 +17,8 @@ if ($_GET['action'] == 'country') {
         $data = $csv->data;
 
         $table = array();
+
+		/*
         $global = array();
         $global['Team'] = 'Global';
         $global['New Recurring Target'] = get_new_recurring_target($data, 'Global', 'AUD');
@@ -43,7 +41,8 @@ if ($_GET['action'] == 'country') {
         $uk['% '] = get_monthly_recurring_percentage($data, 'UK', 'GBP');
         $uk['Singles'] = get_singles($data, 'UK', 'GBP');
         $uk['Total Money in'] = get_total_in($data, 'UK', 'GBP');
-        //$table[] = $uk;
+        $table[] = $uk;
+		*/
 
         $th = array();
         $th['Team'] = 'TH';
